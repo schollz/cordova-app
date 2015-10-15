@@ -75,6 +75,7 @@ cd ~/
 echo "export PATH=\$PATH:$ANDROID_SDK_PATH/tools" >> ".profile"
 echo "export PATH=\$PATH:$ANDROID_SDK_PATH/platform-tools" >> ".profile"
 echo "export PATH=\$PATH:$NODE_PATH/bin" >> ".profile"
+echo "export ANDROID_HOME=$ANDROID_SDK_PATH/tools" >> ".profile"
 
 # Add Android and NPM paths to the temporary user path to complete installation
 export PATH=$PATH:$ANDROID_SDK_PATH/tools
