@@ -53,21 +53,33 @@ Start Android Studio and then use ```Tools -> Android -> AVD Manager```. Setup a
 sudo npm install -g cordova
 ```
 
-### Run cordova
+## Setup app
+
+### Generate new app
 
 ```bash
-cordova create hello com.example.hello HelloWorld
-cd hello
+cordova create fingerprinting com.find.fingerprinting fingerprinting
+cd fingerprinting
 cordova platform add android
 cordova build android
-cordova emulate android       #to deploy the app on a default android emulator
-cordova run android --device  #to deploy the app on a connected device
 ```
 
 ### Install plugins
 
 ```bash
 cordova plugin add nl.nielsad.cordova.wifiscanner
+cordova plugin add https://github.com/katzer/cordova-plugin-background-mode.git
 ```
 
+### Copy HTML
 
+```bash
+cp index.html fingerprinting/www/index.html
+cp index.js fingerprinting/www/js/index.js
+```
+### Run / deploy
+
+```bash
+cordova emulate android       #to deploy the app on a default android emulator
+cordova run android --device  #to deploy the app on a connected device
+```
