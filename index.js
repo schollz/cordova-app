@@ -93,6 +93,8 @@ function errorCallback(response){
 
 function TrackWifiOff(){
     if (id != null) {
+        document.getElementById('wifiOn').setAttribute('style','display:none;');
+        document.getElementById('wifiOff').setAttribute('style','display:block;');
         navigator.wifi.clearWatch(id);
         alert("trackig off: " + id);
         message = "trackig off: " + id;
@@ -103,6 +105,8 @@ function TrackWifiOff(){
 
 function TrackWifiOn(){
     // var frequency = parseInt(document.getElementById("seconds").value) * 1000;
+    document.getElementById('wifiOn').setAttribute('style','display:block;');
+    document.getElementById('wifiOff').setAttribute('style','display:none;');
     userfind =  document.getElementById("userfind").value.toLowerCase();
     groupfind =  document.getElementById("groupfind").value.toLowerCase();
     locationfind =  document.getElementById("locationfind").value.toLowerCase();
@@ -157,6 +161,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+
         console.log('Received Event: ' + id);
     },
     // ADD LISTENERS FOR BUTTONS
@@ -168,6 +173,8 @@ var app = {
 
 
 };
+
+document.getElementById('wifiOn').setAttribute('style','display:none;');
 
 app.initialize();
 
