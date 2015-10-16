@@ -5,6 +5,10 @@ var id = null;
 var learnCounter = 0;
 var learnLimit = 100;
 var progress = 0.0;
+var groupfind;
+var locationfind;
+var userfind;
+
 
 
 function getXMLHttp(){
@@ -45,10 +49,10 @@ function SendWifiData(network_data){
             server += "/track"
         }
         var data = {
-            "group": document.getElementById("group").value,
-            "username": document.getElementById("user").value,
+            "group": groupfind,
+            "username": userfind,
             "password": "none",
-            "location": document.getElementById("location").value,
+            "location": locationfind,
             "time": Date.now(),
             "wifi-fingerprint": network_data
         }
@@ -99,6 +103,12 @@ function TrackWifiOff(){
 
 function TrackWifiOn(){
     // var frequency = parseInt(document.getElementById("seconds").value) * 1000;
+    userfind =  document.getElementById("userfind").value.toLowerCase();
+    groupfind =  document.getElementById("groupfind").value.toLowerCase();
+    locationfind =  document.getElementById("locationfind").value.toLowerCase();
+    window.localStorage.setItem('userfind',userfind);
+    window.localStorage.setItem('groupfind',groupfind);
+    window.localStorage.setItem('locationfind',locationfind);
     var frequency = 2.5 * 1000;
     id = navigator.wifi.watchAccessPoints(successCallback, errorCallback, {"frequency":frequency});
     alert("tracking on: " + id);
@@ -112,6 +122,9 @@ function DisplayTime(){
 }
 */
 
+function showConfirm() {
+        navigator.app.exitApp();
+    }
 
 
 
@@ -150,8 +163,48 @@ var app = {
     addListeners: function(){
         document.getElementById("on").addEventListener("touchstart", TrackWifiOn);
         document.getElementById("off").addEventListener("touchstart", TrackWifiOff);
+        document.getElementById("exit").addEventListener("touchstart", showConfirm);
     }
+
+
 };
 
 app.initialize();
 
+
+document.addEventListener('deviceready', function () {
+    // Android customization
+    cordova.plugins.backgroundMode.setDefaults({ text:'Doing heavy tasks.'});
+    // Enable background mode
+    cordova.plugins.backgroundMode.enable();
+
+    // Called when background mode has been activated
+    cordova.plugins.backgroundMode.onactivate = function () {
+        setTimeout(function () {
+            // Modify the currently displayed notification
+            cordova.plugins.backgroundMode.configure({
+                text:'Running in background for more than 5s now.'
+            });
+        }, 5000);
+    }
+}, false);
+
+
+test = window.localStorage.getItem('userfind');
+if (test == null || test.length < 1) {
+    document.getElementById("userfind").value  = 'user';
+} else {
+    document.getElementById("userfind").value  = test;
+}
+test = window.localStorage.getItem('groupfind');
+if (test == null || test.length < 1) {
+    document.getElementById("groupfind").value  = 'find';
+} else {
+    document.getElementById("groupfind").value  = test;
+}
+test = window.localStorage.getItem('locationfind');
+if (test == null || test.length < 1) {
+    document.getElementById("locationfind").value  = 'living room';
+} else {
+    document.getElementById("locationfind").value  = test;
+}
