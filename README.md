@@ -43,7 +43,7 @@ studio.sh
 sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 ```
 
-Restart computer, hit <DEL> and enable Virtualization.
+Restart computer, hit DEL and enable Virtualization.
 
 Start Android Studio and then use ```Tools -> Android -> AVD Manager```. Setup an Android using Lollipop x86.
 
