@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. First install Java 7
+### Install Java 7
 
 ```bash
 sudo add-apt-repository ppa:webupd8team/java
@@ -13,7 +13,7 @@ sudo apt-get install oracle-java7-set-default
 
 And check if its installed using ```javac --version```.
 
-2. Install Android Studio
+### Install Android Studio
 
 First install some dependencies for Ubuntu (or wait until install fails to install...)_
 
@@ -37,7 +37,7 @@ Start Android studio
 studio.sh
 ```
 
-3. Enable a emulator (optional)
+### Enable a emulator (optional)
 
 ```
 sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
@@ -47,13 +47,13 @@ Restart computer, hit <DEL> and enable Virtualization.
 
 Start Android Studio and then use ```Tools -> Android -> AVD Manager```. Setup an Android using Lollipop x86.
 
-4. Install Cordova
+### Install Cordova
 
 ```
 sudo npm install -g cordova
 ```
 
-4. Run cordova
+### Run cordova
 
 ```bash
 cordova create hello com.example.hello HelloWorld
