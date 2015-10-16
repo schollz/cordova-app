@@ -2,8 +2,6 @@
 
 ## Setup
 
-### Android studio setup
-
 1. First install Java 7
 
 ```bash
