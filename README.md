@@ -64,4 +64,10 @@ cordova emulate android       #to deploy the app on a default android emulator
 cordova run android --device  #to deploy the app on a connected device
 ```
 
+### Install plugins
+
+```bash
+cordova plugin add nl.nielsad.cordova.wifiscanner
+```
+
 
