@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' http://ips.colab.duke.edu:8888 http://52.18.218.56:8080 http://a.tile.osm.org http://b.tile.osm.org http://c.tile.osm.org http://a.data.osmbuildings.org http://b.data.osmbuildings.org http://c.data.osmbuildings.org http://d.data.osmbuildings.org; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/stefans.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+        <title>F.I.N.D.</title>
+
+    </head>
+    <body>
+
+<div class="app">
+            <h1>FIND</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+
+            <div id="machinelearning">
+                                    <p>
+                            <label>Server:</label> <input type="text" name="ML" id="ML" size="25" value="http://ips.colab.duke.edu:8888"><br>
+                        </p>
+                <p>
+                    <input type="radio" name="task" id="learn" value="learn">Learn
+                    <input type="radio" name="task" id="track" value="track" checked>Track
+                </p>
+
+<p>
+<label>Seconds:</label> <input type="text" name="seconds" id="seconds" size="25" value="2.0"><br>
+</p>
+<p>
+<label>User:</label> <input type="text" name="user" id="user" size="25" value="user"><br>
+</p>
+<p>
+<label>Group:</label> <input type="text" name="group" id="group" size="25" value="find"><br>
+</p>
+<p>
+<label>Location:</label> <input type="text" name="location" id="location" size="25" value="house"><br>
+</p>
+
+
+                <p>
+                    <button class="button-primary" type="submit" id="on">On</button> <button class="button-primary" type="submit" id="off">Off</button>
+                </p>
+
+
+            </div>
+</div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+<!--
+        <link rel="stylesheet" href="leaflet.css" />
+        <script src="leaflet.js"></script>
+        <script src="js/osmbuildings/dist/OSMBuildings-Leaflet.js"></script>
+        <script src="js/map.js"></script>
+-->
+
+    </body>
+</html>
