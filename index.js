@@ -104,20 +104,22 @@ function TrackWifiOff(){
 }
 
 function TrackWifiOn(){
-    // var frequency = parseInt(document.getElementById("seconds").value) * 1000;
-    document.getElementById('wifiOn').setAttribute('style','display:block;');
-    document.getElementById('wifiOff').setAttribute('style','display:none;');
-    userfind =  document.getElementById("userfind").value.toLowerCase();
-    groupfind =  document.getElementById("groupfind").value.toLowerCase();
-    locationfind =  document.getElementById("locationfind").value.toLowerCase();
-    window.localStorage.setItem('userfind',userfind);
-    window.localStorage.setItem('groupfind',groupfind);
-    window.localStorage.setItem('locationfind',locationfind);
-    var frequency = 2.5 * 1000;
-    id = navigator.wifi.watchAccessPoints(successCallback, errorCallback, {"frequency":frequency});
-    alert("tracking on: " + id);
-    message = "tracking on: " + id;
-    console.log(message)
+    if (id == null) {
+        // var frequency = parseInt(document.getElementById("seconds").value) * 1000;
+        document.getElementById('wifiOn').setAttribute('style','display:block;');
+        document.getElementById('wifiOff').setAttribute('style','display:none;');
+        userfind =  document.getElementById("userfind").value.toLowerCase();
+        groupfind =  document.getElementById("groupfind").value.toLowerCase();
+        locationfind =  document.getElementById("locationfind").value.toLowerCase();
+        window.localStorage.setItem('userfind',userfind);
+        window.localStorage.setItem('groupfind',groupfind);
+        window.localStorage.setItem('locationfind',locationfind);
+        var frequency = 2.5 * 1000;
+        id = navigator.wifi.watchAccessPoints(successCallback, errorCallback, {"frequency":frequency});
+        alert("tracking on: " + id);
+        message = "tracking on: " + id;
+        console.log(message)
+    }
 }
 
 /*
